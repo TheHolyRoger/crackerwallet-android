@@ -78,7 +78,7 @@ public class BRSender {
                     long minAmount = BRWalletManager.getInstance().getMinOutputAmountRequested();
                     errTitle[0] = app.getString(R.string.Alerts_sendFailure);
                     errMessage[0] = String.format(Locale.getDefault(), app.getString(R.string.PaymentProtocol_Errors_smallPayment),
-                            BRConstants.litecoinLowercase + new BigDecimal(minAmount).divide(new BigDecimal(100), BRConstants.ROUNDING_MODE));
+                            BRConstants.theholyrogerLowercase + new BigDecimal(minAmount).divide(new BigDecimal(100), BRConstants.ROUNDING_MODE));
                 } catch (SpendingNotAllowed spendingNotAllowed) {
                     showSpendNotAllowed(app);
                     return;
@@ -267,7 +267,7 @@ public class BRSender {
         //amount can't be less than the min
         if (request.amount < minOutput) {
             final String bitcoinMinMessage = String.format(Locale.getDefault(), ctx.getString(R.string.PaymentProtocol_Errors_smallTransaction),
-                    BRConstants.litecoinLowercase + new BigDecimal(minOutput).divide(new BigDecimal("100")));
+                    BRConstants.theholyrogerLowercase + new BigDecimal(minOutput).divide(new BigDecimal("100")));
 
 
             ((Activity) ctx).runOnUiThread(new Runnable() {
@@ -339,9 +339,9 @@ public class BRSender {
             feeForTx += (BRWalletManager.getInstance().getBalance(ctx) - request.amount) % 100;
         }
         final long total = request.amount + feeForTx;
-        String formattedAmountBTC = BRCurrency.getFormattedCurrencyString(ctx, "LTC", BRExchange.getBitcoinForSatoshis(ctx, new BigDecimal(request.amount)));
-        String formattedFeeBTC = BRCurrency.getFormattedCurrencyString(ctx, "LTC", BRExchange.getBitcoinForSatoshis(ctx, new BigDecimal(feeForTx)));
-        String formattedTotalBTC = BRCurrency.getFormattedCurrencyString(ctx, "LTC", BRExchange.getBitcoinForSatoshis(ctx, new BigDecimal(total)));
+        String formattedAmountBTC = BRCurrency.getFormattedCurrencyString(ctx, "ROGER", BRExchange.getBitcoinForSatoshis(ctx, new BigDecimal(request.amount)));
+        String formattedFeeBTC = BRCurrency.getFormattedCurrencyString(ctx, "ROGER", BRExchange.getBitcoinForSatoshis(ctx, new BigDecimal(feeForTx)));
+        String formattedTotalBTC = BRCurrency.getFormattedCurrencyString(ctx, "ROGER", BRExchange.getBitcoinForSatoshis(ctx, new BigDecimal(total)));
 
         String formattedAmount = BRCurrency.getFormattedCurrencyString(ctx, iso, BRExchange.getAmountFromSatoshis(ctx, iso, new BigDecimal(request.amount)));
         String formattedFee = BRCurrency.getFormattedCurrencyString(ctx, iso, BRExchange.getAmountFromSatoshis(ctx, iso, new BigDecimal(feeForTx)));

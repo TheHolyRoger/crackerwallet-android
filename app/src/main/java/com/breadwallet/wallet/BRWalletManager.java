@@ -53,7 +53,7 @@ import com.breadwallet.tools.util.TypesConverter;
 import com.breadwallet.tools.util.Utils;
 import com.breadwallet.tools.util.Bip39Reader;
 import com.google.firebase.crash.FirebaseCrash;
-import com.loafwallet.BadEnglishWordListFix;
+import com.crackerwallet.BadEnglishWordListFix;
 import com.platform.entities.WalletInfo;
 import com.platform.tools.KVStoreManager;
 
@@ -402,7 +402,7 @@ public class BRWalletManager {
                 app.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        String am = BRCurrency.getFormattedCurrencyString(context, "LTC", BRExchange.getBitcoinForSatoshis(context, new BigDecimal(amount)));
+                        String am = BRCurrency.getFormattedCurrencyString(context, "ROGER", BRExchange.getBitcoinForSatoshis(context, new BigDecimal(amount)));
                         String amCur = BRCurrency.getFormattedCurrencyString(context, BRSharedPrefs.getIso(context), BRExchange.getAmountFromSatoshis(context, BRSharedPrefs.getIso(context), new BigDecimal(amount)));
                         String formatted = String.format("%s (%s)", am, amCur);
                         String strToShow = String.format(context.getString(R.string.TransactionDetails_received), formatted);

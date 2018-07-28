@@ -1,4 +1,4 @@
-package com.loafwallet;
+package com.crackerwallet;
 
 public final class BadEnglishWordListFix {
 

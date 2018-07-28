@@ -183,7 +183,7 @@ public class CurrencyFetchManager {
 
 
     public static JSONArray getJSonArray(Activity activity) {
-        String jsonString = callURL(activity, "https://litecoin.com/api/v1/rates");
+        String jsonString = callURL(activity, "https://theholyroger.com/api/v1/rates");
         JSONArray jsonArray = null;
         if (jsonString == null) return null;
         try {
@@ -214,7 +214,7 @@ public class CurrencyFetchManager {
     }
 
     public static void updateFeePerKb(Activity activity) {
-        String jsonString = callURL(activity, "https://api.loafwallet.org/fee-per-kb");
+        String jsonString = callURL(activity, "https://api.theholyroger.com/fee-per-kb");
         if (jsonString == null || jsonString.isEmpty()) {
             Log.e(TAG, "updateFeePerKb: failed to update fee, response string: " + jsonString);
             return;

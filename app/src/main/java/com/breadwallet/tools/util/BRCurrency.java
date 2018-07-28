@@ -11,7 +11,7 @@ import java.util.Currency;
 import java.util.Locale;
 import java.util.Objects;
 
-import static com.breadwallet.tools.util.BRConstants.CURRENT_UNIT_PHOTONS;
+import static com.breadwallet.tools.util.BRConstants.CURRENT_UNIT_RATOSHIS;
 
 /**
  * BreadWallet
@@ -93,7 +93,7 @@ public class BRCurrency {
         String symbol = null;
         decimalFormatSymbols = currencyFormat.getDecimalFormatSymbols();
 //        int decimalPoints = 0;
-        if (Objects.equals(isoCurrencyCode, "LTC")) {
+        if (Objects.equals(isoCurrencyCode, "ROGER")) {
             symbol = BRExchange.getBitcoinSymbol(app);
         } else {
             try {
@@ -122,19 +122,19 @@ public class BRCurrency {
 
     public static String getSymbolByIso(Context app, String iso) {
         String symbol;
-        if (Objects.equals(iso, "LTC")) {
-            String currencySymbolString = BRConstants.litecoinLowercase;
+        if (Objects.equals(iso, "ROGER")) {
+            String currencySymbolString = BRConstants.theholyrogerLowercase;
             if (app != null) {
                 int unit = BRSharedPrefs.getCurrencyUnit(app);
                 switch (unit) {
-                    case CURRENT_UNIT_PHOTONS:
-                        currencySymbolString = "m" + BRConstants.litecoinLowercase;
+                    case CURRENT_UNIT_RATOSHIS:
+                        currencySymbolString = "m" + BRConstants.theholyrogerLowercase;
                         break;
-                    case BRConstants.CURRENT_UNIT_LITES:
-                        currencySymbolString = BRConstants.litecoinLowercase;
+                    case BRConstants.CURRENT_UNIT_ROGITS:
+                        currencySymbolString = BRConstants.theholyrogerLowercase;
                         break;
-                    case BRConstants.CURRENT_UNIT_LITECOINS:
-                        currencySymbolString = BRConstants.litecoinUppercase;
+                    case BRConstants.CURRENT_UNIT_ROGERS:
+                        currencySymbolString = BRConstants.theholyrogerUppercase;
                         break;
                 }
             }
@@ -153,16 +153,16 @@ public class BRCurrency {
 
     //for now only use for BTC and Bits
     public static String getCurrencyName(Context app, String iso) {
-        if (Objects.equals(iso, "LTC")) {
+        if (Objects.equals(iso, "ROGER")) {
             if (app != null) {
                 int unit = BRSharedPrefs.getCurrencyUnit(app);
                 switch (unit) {
-                    case CURRENT_UNIT_PHOTONS:
-                        return "photons";
-                    case BRConstants.CURRENT_UNIT_LITES:
-                        return "lites";
-                    case BRConstants.CURRENT_UNIT_LITECOINS:
-                        return "LTC";
+                    case CURRENT_UNIT_RATOSHIS:
+                        return "ratoshis";
+                    case BRConstants.CURRENT_UNIT_ROGITS:
+                        return "rogits";
+                    case BRConstants.CURRENT_UNIT_ROGERS:
+                        return "ROGER";
                 }
             }
         }
@@ -172,9 +172,9 @@ public class BRCurrency {
     public static int getMaxDecimalPlaces(String iso) {
         if (Utils.isNullOrEmpty(iso)) return 8;
 
-        if (iso.equalsIgnoreCase("LTC")) {
+        if (iso.equalsIgnoreCase("ROGER")) {
             return 8;
-        } else if (iso.equalsIgnoreCase("lites")) {
+        } else if (iso.equalsIgnoreCase("rogits")) {
             return 5;
         } else {
             Currency currency = Currency.getInstance(iso);

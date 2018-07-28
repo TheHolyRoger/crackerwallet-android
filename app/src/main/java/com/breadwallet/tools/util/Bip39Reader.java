@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.res.AssetManager;
 
 import com.google.firebase.crash.FirebaseCrash;
-import com.loafwallet.BadEnglishWordListFix;
+import com.crackerwallet.BadEnglishWordListFix;
 
 import java.io.BufferedReader;
 import java.io.IOException;
